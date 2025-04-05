@@ -1,0 +1,50 @@
+/* Сброс стандартных отступов */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Для всей страницы */
+body {
+  font-family: Arial, sans-serif; /* Шрифт */
+  height: 100vh; /* Высота на весь экран */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Цвет фона */
+}
+
+/* Для картинки */
+img {
+  width: 100%; /* Растягиваем картинку на всю ширину */
+  max-width: 100%; /* Ограничиваем ширину */
+  height: auto; /* Сохраняем пропорции картинки */
+}
+
+/* Для контейнера с текстом и кнопкой */
+.container {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Размер контейнера */
+  max-width: 600px; /* Ограничиваем максимальную ширину */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
