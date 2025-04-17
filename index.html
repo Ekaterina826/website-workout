@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Главная</title>
-  <link rel="stylesheet" href="styles/style.css" />
-</head>
-<body>
-  <div class="container">
-    <img src="images/photo.jpg" alt="Иконка" class="icon" />
-    <p>Добро пожаловать! Если хотите изменить свою жизнь, нажмите кнопку ниже, чтобы узнать больше.</p>
-    <button id="moreButton">Узнать больше</button>
-  </div>
-  <script src="scripts/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Фитнес приложение</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="#">HOME</a>
+          <a href="#" id="developer">ABOUT US</a>
+          <a href="#" id="headerElement">PRODUCT</a>
+        </nav>
+      </div>
+    </header>
+    <main class="hero">
+      <div class="container">
+        <h1>PumpItUp</h1>
+        <h3 class="hero-title">
+          Приложение для персональных тренировок и контроля физической
+          активности
+        </h3>
+        <img src="images/photo.png" class="hero-img" alt="фон" />
+        <button id="moreButton" class="modern-button">узнать больше</button>
+      </div>
+    </main>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>
-
