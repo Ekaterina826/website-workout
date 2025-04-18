@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PumpItUp - Авторизация</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <style>
+      body {
+        background: linear-gradient(
+          135deg,
+          #bfdbfe,
+          #dbeafe
+        ); /* Голубой фон как на главной */
+        font-family: "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .login-container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        margin: 20px auto;
+      }
+      .login-container h2 {
+        color: #1e3a8a; /* Тёмно-синий как логотип */
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+      .login-container input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #bfdbfe;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+      .login-container input:focus {
+        outline: none;
+        border-color: #1e3a8a;
+      }
+      .login-container button {
+        width: 100%;
+        padding: 12px;
+        background: #facc15; /* Жёлтый как кнопка "Узнать больше" */
+        color: #1e3a8a;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .login-container button:hover {
+        background: #eab308;
+      }
+      .error {
+        color: #dc2626;
+        font-size: 14px;
+        margin-top: 10px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html">HOME</a>
+          <a href="about.html" id="developer">ABOUT US</a>
+          <a href="info.html" id="headerElement">PRODUCT</a>
+          <a href="login.html">AUTHORIZATION</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="login-container">
+          <h2>Войди в PumpItUp!</h2>
+          <input type="text" id="username" placeholder="Логин" required />
+          <input type="password" id="password" placeholder="Пароль" required />
+          <p id="error" class="error">Проверьте логин или пароль</p>
+          <button onclick="tryLogin()">Начать тренировку!</button>
+        </div>
+      </div>
+    </main>
+    <script>
+      function tryLogin() {
+        const error = document.getElementById("error");
+        error.style.display = "block";
+        setTimeout(() => {
+          error.style.display = "none";
+          alert("Вход успешен! (Демо для PumpItUp)");
+          // Позже можно добавить переход, например, на info.html
+          // window.location.href = 'info.html';
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
