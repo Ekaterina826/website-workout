@@ -233,9 +233,8 @@ button {
   }
 
   .hero-img {
-    display: block; /* или inline-block */
-    max-width: 100%;
-    height: auto;
+    .hero-img {
+    display: none; /* скрываем, если не помещается */
   }
 
   .nav a {
