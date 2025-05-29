@@ -54,19 +54,20 @@ h1 {
 }
 
 .hero {
-  height: 50vh;
+  height: auto; /* пусть высота зависит от контента */
   display: flex;
-  align-items: left;
-  text-align: left;
-  color: #3e347b;
+  align-items: center;
+  justify-content: space-between; /* чтобы текст и картинка были по краям */
+  padding: 20px 90px; /* отступы по бокам */
   position: relative;
 }
 .hero-img {
-  position: fixed;
-  bottom: 100px;
-  right: 90px; /* Изменили left на right */
-  max-width: 791px; /* Уменьшили размер */
-  height: 450px; /* Уменьшили пропорционально */
+  position: relative; /* убираем fixed */
+  max-width: 100%; /* не больше ширины контейнера */
+  height: auto; /* сохраняем пропорции */
+  display: block; /* чтобы не было лишних отступов */
+  margin-left: auto; /* по желанию: сдвинуть вправо */
+  margin-right: 90px; /* если нужен отступ справа */
   z-index: 2;
 }
 

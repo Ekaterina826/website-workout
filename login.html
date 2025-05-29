@@ -161,31 +161,44 @@
       function showRegister() {
         document.getElementById("login-form").classList.add("hidden");
         document.getElementById("register-form").classList.remove("hidden");
+        // Сброс ошибок
+        document.getElementById("login-error").style.display = "none";
+        document.getElementById("reg-error").style.display = "none";
       }
 
       function showLogin() {
         document.getElementById("register-form").classList.add("hidden");
         document.getElementById("login-form").classList.remove("hidden");
+        // Сброс ошибок
+        document.getElementById("login-error").style.display = "none";
+        document.getElementById("reg-error").style.display = "none";
       }
 
       function tryLogin() {
-        const username = document.getElementById("login-username").value;
-        const password = document.getElementById("login-password").value;
+        const username = document.getElementById("login-username").value.trim();
+        const password = document.getElementById("login-password").value.trim();
         const error = document.getElementById("login-error");
 
-        if (username === "user" && password === "1234") {
-          alert("Добро пожаловать!");
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        const user = users.find(
+          (u) => u.username === username && u.password === password
+        );
+
+        if (user) {
           error.style.display = "none";
+          alert("Добро пожаловать, " + username + "!");
+          // Здесь можно добавить переход или другую логику
         } else {
           error.style.display = "block";
         }
       }
 
       function registerUser() {
-        const username = document.getElementById("reg-username").value;
-        const email = document.getElementById("reg-email").value;
-        const password = document.getElementById("reg-password").value;
-        const confirm = document.getElementById("reg-confirm").value;
+        const username = document.getElementById("reg-username").value.trim();
+        const email = document.getElementById("reg-email").value.trim();
+        const password = document.getElementById("reg-password").value.trim();
+        const confirm = document.getElementById("reg-confirm").value.trim();
         const error = document.getElementById("reg-error");
 
         if (!username || !email || !password || !confirm) {
@@ -200,8 +213,27 @@
           return;
         }
 
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        if (users.find((u) => u.username === username)) {
+          error.textContent = "Пользователь с таким логином уже существует.";
+          error.style.display = "block";
+          return;
+        }
+
+        users.push({ username, email, password });
+
+        localStorage.setItem("users", JSON.stringify(users));
+
         error.style.display = "none";
         alert("Регистрация успешна!");
+
+        showLogin();
+
+        document.getElementById("reg-username").value = "";
+        document.getElementById("reg-email").value = "";
+        document.getElementById("reg-password").value = "";
+        document.getElementById("reg-confirm").value = "";
       }
     </script>
   </body>
