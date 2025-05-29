@@ -3,38 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PumpItUp - Авторизация</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <title>PumpItUp - Войти / Регистрация</title>
     <style>
-      body {
-        background: linear-gradient(
-          135deg,
-          #bfdbfe,
-          #dbeafe
-        ); /* Голубой фон как на главной */
-        font-family: "Segoe UI", Arial, sans-serif;
-        min-height: 100vh;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
+      * {
+        box-sizing: border-box;
       }
-      .login-container {
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #e9f4ff, #bfdbfe);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
         background: white;
         padding: 30px;
-        border-radius: 12px;
+        border-radius: 16px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        width: 100%;
         max-width: 400px;
-        margin: 20px auto;
+        width: 100%;
+        text-align: center;
       }
-      .login-container h2 {
-        color: #1e3a8a; /* Тёмно-синий как логотип */
+
+      h2 {
+        color: #241d9a;
         font-size: 24px;
         margin-bottom: 20px;
         text-transform: uppercase;
       }
-      .login-container input {
+
+      input {
         width: 100%;
         padding: 12px;
         margin: 10px 0;
@@ -42,65 +44,164 @@
         border-radius: 8px;
         font-size: 16px;
       }
-      .login-container input:focus {
+
+      input:focus {
         outline: none;
-        border-color: #1e3a8a;
+        border-color: #241d9a;
       }
-      .login-container button {
+
+      button {
         width: 100%;
         padding: 12px;
-        background: #facc15; /* Жёлтый как кнопка "Узнать больше" */
-        color: #1e3a8a;
+        background: #facc15;
+        color: #241d9a;
         border: none;
         border-radius: 8px;
         font-size: 16px;
-        cursor: pointer;
         font-weight: bold;
         text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 10px;
       }
-      .login-container button:hover {
+
+      button:hover {
         background: #eab308;
       }
+
+      .toggle-link {
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      .toggle-link a {
+        color: #241d9a;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
       .error {
         color: #dc2626;
         font-size: 14px;
         margin-top: 10px;
         display: none;
       }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 20px;
+        }
+
+        h2 {
+          font-size: 20px;
+        }
+
+        input,
+        button {
+          font-size: 15px;
+        }
+      }
     </style>
   </head>
   <body>
-    <header class="header">
-      <div class="container">
-        <nav class="nav">
-          <a href="index.html">HOME</a>
-          <a href="about.html" id="developer">ABOUT US</a>
-          <a href="info.html" id="headerElement">PRODUCT</a>
-          <a href="login.html">AUTHORIZATION</a>
-        </nav>
+    <div class="container">
+      <!-- Вход -->
+      <div id="login-form">
+        <h2>Войти</h2>
+        <input type="text" id="login-username" placeholder="Логин" required />
+        <input
+          type="password"
+          id="login-password"
+          placeholder="Пароль"
+          required
+        />
+        <p id="login-error" class="error">Неверный логин или пароль</p>
+        <button onclick="tryLogin()">НАЧАТЬ!</button>
+        <p class="toggle-link">
+          Нет аккаунта? <a onclick="showRegister()">Зарегистрироваться</a>
+        </p>
       </div>
-    </header>
-    <main>
-      <div class="container">
-        <div class="login-container">
-          <h2>Войди в PumpItUp!</h2>
-          <input type="text" id="username" placeholder="Логин" required />
-          <input type="password" id="password" placeholder="Пароль" required />
-          <p id="error" class="error">Проверьте логин или пароль</p>
-          <button onclick="tryLogin()">Начать тренировку!</button>
-        </div>
+
+      <!-- Регистрация -->
+      <div id="register-form" class="hidden">
+        <h2>Регистрация</h2>
+        <input
+          type="text"
+          id="reg-username"
+          placeholder="Придумайте логин"
+          required
+        />
+        <input type="email" id="reg-email" placeholder="Email" required />
+        <input
+          type="password"
+          id="reg-password"
+          placeholder="Придумайте пароль"
+          required
+        />
+        <input
+          type="password"
+          id="reg-confirm"
+          placeholder="Повторите пароль"
+          required
+        />
+        <p id="reg-error" class="error">Ошибка при регистрации</p>
+        <button onclick="registerUser()">Зарегистрироваться</button>
+        <p class="toggle-link">
+          Уже есть аккаунт? <a onclick="showLogin()">Войти</a>
+        </p>
       </div>
-    </main>
+    </div>
+
     <script>
+      function showRegister() {
+        document.getElementById("login-form").classList.add("hidden");
+        document.getElementById("register-form").classList.remove("hidden");
+      }
+
+      function showLogin() {
+        document.getElementById("register-form").classList.add("hidden");
+        document.getElementById("login-form").classList.remove("hidden");
+      }
+
       function tryLogin() {
-        const error = document.getElementById("error");
-        error.style.display = "block";
-        setTimeout(() => {
+        const username = document.getElementById("login-username").value;
+        const password = document.getElementById("login-password").value;
+        const error = document.getElementById("login-error");
+
+        if (username === "user" && password === "1234") {
+          alert("Добро пожаловать!");
           error.style.display = "none";
-          alert("Вход успешен! (Демо для PumpItUp)");
-          // Позже можно добавить переход, например, на info.html
-          // window.location.href = 'info.html';
-        }, 1000);
+        } else {
+          error.style.display = "block";
+        }
+      }
+
+      function registerUser() {
+        const username = document.getElementById("reg-username").value;
+        const email = document.getElementById("reg-email").value;
+        const password = document.getElementById("reg-password").value;
+        const confirm = document.getElementById("reg-confirm").value;
+        const error = document.getElementById("reg-error");
+
+        if (!username || !email || !password || !confirm) {
+          error.textContent = "Пожалуйста, заполните все поля.";
+          error.style.display = "block";
+          return;
+        }
+
+        if (password !== confirm) {
+          error.textContent = "Пароли не совпадают.";
+          error.style.display = "block";
+          return;
+        }
+
+        error.style.display = "none";
+        alert("Регистрация успешна!");
       }
     </script>
   </body>

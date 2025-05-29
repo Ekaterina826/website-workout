@@ -3,58 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Информация</title>
+    <title>О проекте</title>
     <link rel="stylesheet" href="styles/info.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e9f4ff;
+        color: #333;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1,
+      h2 {
+        color: #241d9a;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      .text {
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .text-shadow {
+        font-weight: bold;
+        color: #444;
+      }
+
+      .features {
+        margin-top: 20px;
+      }
+
+      .task-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .task-list li {
+        margin-bottom: 15px;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .task-list li::before {
+        content: "✔";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+      }
+
+      a {
+        display: inline-block;
+        margin-top: 40px;
+        text-decoration: none;
+        background-color: #e9f4ff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+      }
+
+      a:hover {
+        background-color: #00509e;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 1.5em;
+        }
+
+        h2 {
+          font-size: 1.2em;
+        }
+
+        .text {
+          font-size: 1em;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <h1>Расскажем подробнее о нашем проекте</h1>
       <p class="text">
-        <span class="text-shadow">Наша цель</span> - это создание удобной и
+        <span class="text-shadow">Наша цель</span> — это создание удобной и
         интеллектуальной системы (приложение, либо telegram-бот, либо вебсайт),
         которая поможет пользователям разрабатывать персональные тренировочные
         программы, отслеживать прогресс и анализировать физическую активность
         для достижения лучших результатов в фитнесе и здоровье.
       </p>
+
       <h2>Что входит в наши задачи?</h2>
       <div class="features">
         <ul class="task-list">
           <li>
-            <span class="checkmark">✅</span> Разработка базы данных
-            пользователей — хранение информации о физических параметрах, уровне
-            подготовки и целях.
+            Разработка базы данных пользователей — хранение информации о
+            физических параметрах, уровне подготовки и целях.
           </li>
           <li>
-            <span class="checkmark">✅</span> Генерация персонализированных
-            тренировок — на основе возраста, веса, опыта, доступного инвентаря и
-            целей.
+            Генерация персонализированных тренировок — на основе возраста, веса,
+            опыта, доступного инвентаря и целей.
           </li>
           <li>
-            <span class="checkmark">✅</span> Мониторинг активности — учёт
-            пройденных тренировок, подсчёт калорий, прогресс по силе и
-            выносливости.
+            Мониторинг активности — учёт пройденных тренировок, подсчёт калорий,
+            прогресс по силе и выносливости.
           </li>
           <li>
-            <span class="checkmark">✅</span> Анализ данных и рекомендации —
-            система подскажет, когда стоит увеличить нагрузку, сменить
-            упражнения или скорректировать режим.
+            Анализ данных и рекомендации — система подскажет, когда стоит
+            увеличить нагрузку, сменить упражнения или скорректировать режим.
           </li>
           <li>
-            <span class="checkmark">✅</span> Интеграция с устройствами —
-            поддержка смарт-часов и фитнес-браслетов для сбора данных о пульсе,
-            шагах и калориях.
+            Интеграция с устройствами — поддержка смарт-часов и фитнес-браслетов
+            для сбора данных о пульсе, шагах и калориях.
           </li>
           <li>
-            <span class="checkmark">✅</span> Визуализация данных — графики и
-            отчёты о прогрессе, достижениях и рекомендациях.
+            Визуализация данных — графики и отчёты о прогрессе, достижениях и
+            рекомендациях.
           </li>
           <li>
-            <span class="checkmark">✅</span> Напоминания и мотивация —
-            push-уведомления о тренировках, советы по питанию и здоровому образу
-            жизни.
+            Напоминания и мотивация — push-уведомления о тренировках, советы по
+            питанию и здоровому образу жизни.
           </li>
         </ul>
       </div>
+
       <h2>Кто может пользоваться нашим приложением?</h2>
       <div class="features">
         <ul class="task-list">
@@ -75,7 +171,8 @@
           </li>
         </ul>
       </div>
-      <a href="index.html">Назад на главную</a>
+
+      <a href="index.html">← Назад на главную</a>
     </div>
   </body>
 </html>

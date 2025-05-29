@@ -2,18 +2,164 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Лучшие разработчики</title>
-    <link rel="stylesheet" href="styles/about.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>О нас — PumpItUp</title>
+    <style>
+      :root {
+        --main-color: #241d9a;
+        --bg-color: #e9f4ff;
+        --text-color: #333;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--main-color);
+        font-size: 36px;
+        margin-bottom: 50px;
+      }
+
+      section {
+        background: white;
+        border-radius: 16px;
+        padding: 25px 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      section:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      h2 {
+        color: var(--main-color);
+        margin-bottom: 12px;
+      }
+
+      p,
+      li {
+        font-size: 17px;
+        line-height: 1.6;
+      }
+
+      .contacts a {
+        color: var(--main-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .contacts a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 15px;
+          margin: 20px;
+        }
+
+        h1 {
+          font-size: 28px;
+          margin-bottom: 30px;
+        }
+
+        section {
+          padding: 20px;
+        }
+
+        h2 {
+          font-size: 20px;
+        }
+
+        p,
+        li {
+          font-size: 16px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="particles" id="particles"></div>
-    <img src="images/юлякатя.jpg" class="we" alt="Катя и Юля" />
-    <h1>
-      Перед вами лучшие разработчики человечества:<br />Тимофеева Екатерина и
-      Оширова Юлия
-    </h1>
+    <div class="container">
+      <h1>О нас</h1>
 
-    <script src="scripts/main.js"></script>
+      <section>
+        <h2>Кто мы?</h2>
+        <p>
+          Мы — команда энтузиастов фитнеса и технологий, объединённых идеей
+          сделать тренировки доступными, эффективными и персональными для
+          каждого. Наши специалисты объединяют знания в области спорта и
+          искусственного интеллекта, чтобы создавать лучшие решения для здоровья
+          и активности.
+        </p>
+      </section>
+
+      <section>
+        <h2>Что мы делаем?</h2>
+        <p>
+          Мы создаём платформу, которая генерирует индивидуальные тренировочные
+          программы с помощью искусственного интеллекта. Наша система учитывает
+          уровень подготовки, цели и предпочтения каждого пользователя, чтобы
+          тренировки были максимально полезными и удобными.
+        </p>
+      </section>
+
+      <section>
+        <h2>Для кого это?</h2>
+        <p>
+          Наш сервис предназначен для всех, кто хочет улучшить свою физическую
+          форму, будь то начинающие или опытные спортсмены, люди с ограниченным
+          временем для тренировок, а также те, кто ищет мотивацию и структуру в
+          занятиях спортом.
+        </p>
+      </section>
+
+      <section>
+        <h2>Почему мы?</h2>
+        <p>
+          Мы используем передовые технологии ИИ, чтобы персонализировать
+          тренировки и сделать процесс занятий спортом простым и приятным. Наш
+          подход позволяет избежать травм и повысить эффективность, учитывая
+          индивидуальные особенности каждого пользователя.
+        </p>
+      </section>
+
+      <section>
+        <h2>Наши ценности и миссия</h2>
+        <p>
+          Мы верим, что спорт должен быть доступен каждому. Наша миссия — помочь
+          людям вести активный и здоровый образ жизни, используя инновационные
+          технологии и поддерживая на каждом этапе тренировочного процесса.
+        </p>
+      </section>
+
+      <section>
+        <h2>Контакты</h2>
+        <ul class="contacts">
+          <li>
+            Email: <a href="mailto:info@pumpitup.com">info@pumpitup.com</a>
+          </li>
+          <li>Телефон: +7 (123) 456-78-90</li>
+          <li>
+            Социальные сети: <a href="#">Instagram</a>, <a href="#">VK</a>,
+            <a href="#">Telegram</a>
+          </li>
+        </ul>
+      </section>
+    </div>
   </body>
 </html>
